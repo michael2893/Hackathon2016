@@ -40,3 +40,5 @@ def parse_metadata(pathlist):
 						track.tag.album, track.tag.track_num[0], 
 						track.tag.album_artist])
 	return metadata
+
+get_tracks("/Volumes/MEMOREX/library")

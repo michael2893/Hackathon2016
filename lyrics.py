@@ -117,7 +117,7 @@ def getlyrics(artist, title, fuzzy=False):
 	return "".join(lyrics).strip()
 
 
-"""Not complete. Need to find way to relay substring of lyrics from previous functions to play the songs they reference"""
+"""Not complete. Need to find way to relay substring of lyrics from previous functions to play the songs they reference
 
 mood=input(“How are you today?”)
 
@@ -139,3 +139,4 @@ elif ‘fantastic’ :
 
 elif ‘excited’ : 
 	pygame.mixer.music.load()
+"""

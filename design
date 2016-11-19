@@ -33,17 +33,17 @@ public final class Travel {
     *  </pre>
     */
 
-    private static void Air(String flight) {
-    	
+    private static String Air(String flight) {
+    	return flight;
     }
 
-    private static void Lodge(String hotel) {
-    	
+    private static String Lodge(String hotel) {
+    	return hotel;
 
     }
 
-    private static void Location(String destination) {
-
+    private static String Location(String destination) {
+    	return destination;
     }
 
     /*@param cost
@@ -53,13 +53,27 @@ public final class Travel {
      * </pre>
      */
 
-    private static  price(double cash, double cost) {
-    	assert cash > cost: "Violation budget exceeded";
+    private static String Locations(String spots){
+		while(true){
+			int count=0;
+			if(spots!=null){
+				 count++;
+				 Locations(spots);
+				 return spots;
+
+			}
+		}
+
+
+    }
+
+    private static void price(double cash, double cost) {
     	if(cash <= cost) {
-    		Air(flight);
-    		Lodge(hotel);
-    		Location(destination);
-    		
+    		Air();
+    		Lodge();
+    		Location();
+    		System.out.print(");
+
     	}
 
     }
@@ -80,4 +94,3 @@ public final class Travel {
     }
 
 }
-

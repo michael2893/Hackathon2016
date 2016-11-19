@@ -33,19 +33,34 @@ public final class Travel {
     *  </pre>
     */
 
-    private static void Air() {
+    private static void Air(String flight) {
+    	
+    }
+
+    private static void Lodge(String hotel) {
+    	
 
     }
 
-    private static void Lodge() {
+    private static void Location(String destination) {
 
     }
 
-    private static void Location() {
+    /*@param cost
+     *
+     *@ensures <pre>
+     * cost < budget
+     * </pre>
+     */
 
-    }
-
-    private static void cost() {
+    private static  price(double cash, double cost) {
+    	assert cash > cost: "Violation budget exceeded";
+    	if(cash <= cost) {
+    		Air(flight);
+    		Lodge(hotel);
+    		Location(destination);
+    		
+    	}
 
     }
 
@@ -59,9 +74,10 @@ public final class Travel {
     public static void main(String[] args) {
     	Scanner in = new Scanner(System.in);
         System.out.println("Enter budget:");
-        double budget = in.nextDouble();
+
 
 
     }
 
 }
+

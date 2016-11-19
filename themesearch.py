@@ -1,10 +1,9 @@
-import urllib.request
+import urllib2
 from bs4 import BeautifulSoup
-import pdb
 
 def candidate_destinations(theme, cnt):
 	citylist, countrylist = [], []
-	response = urllib.request.urlopen('http://www.booking.com/destinationfinder/%s.html' % (theme))
+	response = urllib2.urlopen('http://www.booking.com/destinationfinder/%s.html' % (theme))
 	src = str(response.read())
 	soup = BeautifulSoup(src, 'html.parser')
 
@@ -32,3 +31,4 @@ def candidate_destinations(theme, cnt):
 
 
 res = candidate_destinations("tranquility", 5)
+print(res)

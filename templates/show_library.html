@@ -6,11 +6,11 @@
       <th>Artist</th> 
       <th>Album</th>
     </tr>
-  {% for track in tracks %}
+  {% for track in library %}
     <tr>
-      <th>{{ track.title }}</th>
-      <th>{{ track.artist }}</th> 
-      <th>{{ track.album }}</th>
+      <th><a href="{{ url_for('play') }}">{{ track["title"] }}</a></th>
+      <th>{{ track["artist"] }}</th> 
+      <th>{{ track["album"] }}</th>
     </tr>
   {% else %}
     <tr>

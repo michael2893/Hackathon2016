@@ -6,9 +6,13 @@
       <th>Artist</th> 
       <th>Album</th>
     </tr>
-  {% for track in library %}
+  {% for track in tracks %}
     <tr>
-      <th><a href="{{ url_for('play') }}">{{ track["title"] }}</a></th>
+      <th>
+        <input type="button" onclick="play()">
+        <audio id={{ track["title"] }} src= {{ track["path"] }}>
+        </audio>{{ track["title"] }}
+      </th>
       <th>{{ track["artist"] }}</th> 
       <th>{{ track["album"] }}</th>
     </tr>

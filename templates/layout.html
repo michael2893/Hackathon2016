@@ -1,6 +1,108 @@
 <!doctype html>
-<title>MusicPlayer</title>
-<div class=page>
-  <h1>MusicPlayer</h1>
-  {% block body %}{% endblock %}
+
+<style type="text/css">
+a {
+  color: #ff2400;
+  text-decoration: none;
+  font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", "sans serif";
+  font-size: 50px;
+}
+
+a:hover {
+  color: #808080;
+  position: relative;
+  font-size: 250%;
+  
+}
+
+a[data]:hover:after {
+  font-size: 250%;
+  content: attr(data);
+  padding: 12px 32px;
+  color: rgba(0,0,0,0.5);
+  position: absolute;
+  left: 0;
+  top: 100%;
+  white-space: nowrap;
+  z-index: 2;
+  border-radius: 5px ;
+  background: rgba(0,0,0,0.5);
+
+}
+body {
+   background-image: url("https://s18.postimg.org/pih6bziy1/musicplayer.png");
+   background-size:450px;
+   -ms-transform: rotate(33deg);
+   background-color: 000000;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-position: center;
+}
+</style>
+
+
+
+<a title="This is a really cool music player.">Music Player</a>
+
+<style>
+<script src="controls.js"></script>
+#audioplayer{
+	width: 480px;
+	height: 60px;
+	margin: 50px auto auto auto;
+ 	border: solid;
+}
+
+#pButton{
+    height:60px; 
+    width: 60px;
+    border: none;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    float:left;
+    outline:none;
+}
+
+.play{background: url('http://www.alexkatz.me/codepen/images/play.png') ;}
+.pause{background: url('http://www.alexkatz.me/codepen/images/pause.png') ;}
+
+#timeline{
+	width: 400px;
+	height: 20px;
+	margin-top: 20px;
+	float: left;
+	float: bottom;
+	border-radius: 15px;
+	background: rgba(0,0,0,.3);
+  
+}
+#playhead{
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	margin-top: 1px;
+	background: rgba(0, 0, 0,1);
+
+}
+
+</style>
+<div style="margin: 545px 0 -18px 0.5px;">
+
+<audio id="music" preload="true" src="">
+    <source src="http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3">
+</audio>
+<script src="controls.js"></script>
+<div id="audioplayer">
+    <button id="pButton" class="play" onclick="play()"></button>
+    <div id="timeline">
+        <div id="playhead"></div>
 </div>
+<script>
+  function play(){
+       var audio = document.getElementById("audio");
+       audio.play();
+                 }
+</script>
+{% block body %}{% endblock %}
+</body>

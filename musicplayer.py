@@ -3,7 +3,7 @@ import os
 import fnmatch
 import eyed3
 from flask import Flask, request, g, redirect, url_for, abort, \
-     render_template
+     render_template, session
 import json
 
 # create the application
@@ -12,20 +12,21 @@ app.config.from_object(__name__)
 
 # Load default config and override config from an environment variable
 app.config.from_envvar('MUSICPLAYER_SETTINGS', silent=True)
-db_path = "library.json"
+db = "library.json"
+current_track = None
 
 @app.route('/')
-def show_library(): 
+def show_library():
     refresh_library()
     return render_template('show_library.html', tracks=load_library())
 
 def load_library():
-    return json.load(open(dp_path, "r"))
+    return json.load(open(db, "r"))
 
-def refresh_library(dir_name, ext="*.mp3"):
-    library = load_library()
-    paths = [track["path"] for track in library]
-
+def refresh_library(dir_name="./library", ext="*.mp3"):
+    metadata = load_library()
+    paths = [track["path"] for track in metadata]
+    
     # check if the folder exists
     if(not os.path.isdir(dir_name)):
         return []
@@ -41,9 +42,20 @@ def refresh_library(dir_name, ext="*.mp3"):
                     if(track_path not in paths):
                         track = eyed3.load(track_path)
                         paths.append(track_path)
-                        library.append({"title":track.tag.title, 
+                        metadata.append({"title":track.tag.title, 
                                         "artist":track.tag.artist,
                                         "album":track.tag.album,
                                         "track_num":track.tag.track_num[0],
                                         "path":track_path,
-                                        "tags"=[]})
+                                        "tags":[]})
+    dump_library(metadata)
+
+def dump_library(jsondata):
+    json.dump(jsondata, open(db, "w"))
+
+@app.route("/play", methods=['GET', 'POST'])
+def play():
+    sound = pygame.mixer.music.load(load_library()[0]["path"])
+    clock = pygame.music.play()
+    time.sleep(2)
+    pygame.mixer.music.stop()

@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block body %}
+  <table style="width:50%">
+    <tr>
+      <th>Track Title</th>
+      <th>Artist</th> 
+      <th>Album</th>
+    </tr>
+  {% for track in tracks %}
+    <tr>
+      <th>{{ track.title }}</th>
+      <th>{{ track.artist }}</th> 
+      <th>{{ track.album }}</th>
+    </tr>
+  {% else %}
+    <tr>
+      <th>-</th>
+      <th>-</th> 
+      <th>-</th>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

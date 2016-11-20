@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+a {
+  color: #ff2400;
+  text-decoration: none;
+  font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", "sans serif";
+  font-size: 50px;
+}
+
+a:hover {
+  color: #808080;
+  position: relative;
+  font-size: 250%;
+  
+}
+
+a[data]:hover:after {
+  font-size: 250%;
+  content: attr(data);
+  padding: 12px 32px;
+  color: rgba(0,0,0,0.5);
+  position: absolute;
+  left: 0;
+  top: 100%;
+  white-space: nowrap;
+  z-index: 2;
+  border-radius: 5px ;
+  background: rgba(0,0,0,0.5);
+
+}
+body {
+   background-image: url("https://s18.postimg.org/pih6bziy1/musicplayer.png");
+   background-size:450px;
+   -ms-transform: rotate(33deg);
+   background-color: 000000;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-position: center;
+   
+}
+
+
+</style>
+</head>
+<body>
+
+
+<a title="This is a really cool music player.">Music Player</a>
+
+
+</style>
+
+</body>
+</html>
